@@ -1,0 +1,244 @@
+/* styles.css - Modern Eco Theme */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #2e7d32;   /* Verde Pădure */
+    --primary-hover: #1b5e20;
+    --accent-color: #4caf50;    /* Verde Deschis */
+    --bg-color: #f0f2f5;        /* Gri foarte deschis */
+    --card-bg: #ffffff;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --danger: #e74c3c;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Navigation (Update) --- */
+.main-nav {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 3rem; /* Padding mai mare (mai mult spațiu sus/jos și stânga/dreapta) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite elementelor să coboare dacă nu au loc, în loc să se suprapună */
+    gap: 20px; /* Distanță minimă între Logo și Meniu */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-brand {
+    font-size: 1.4rem; /* Font puțin mai mare */
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column; /* Pune "Salut" sub titlu dacă e nevoie, sau îl ținem lipit */
+    line-height: 1.2;
+}
+
+.nav-user-info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+/* Grupul de link-uri din dreapta */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Spațiu clar între butoane (Panou, Grafic, Deconectare) */
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    padding: 10px 16px; /* Butoane mai mari și mai ușor de apăsat */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Spațiu între iconiță și text */
+}
+
+.nav-links a:hover {
+    background-color: #e8f5e9;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Butonul specific de Deconectare */
+.nav-links .logout-btn {
+    background-color: #ffebee;
+    color: var(--danger);
+    border: 1px solid #ffcdd2;
+    margin-left: 10px; /* Extra spațiu înainte de butonul de ieșire */
+}
+
+.nav-links .logout-btn:hover {
+    background-color: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+}
+
+/* --- Cards --- */
+.card, .login-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Forms --- */
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+    font-weight: 500;
+    text-align: left;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border 0.3s;
+}
+
+form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* --- Tables --- */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+th:first-child { border-top-left-radius: 8px; }
+th:last-child { border-top-right-radius: 8px; }
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+}
+
+tr:hover td {
+    background-color: #f9f9f9;
+}
+
+/* --- Utilities --- */
+.error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #c62828;
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f5e9;
+    border-radius: 8px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links a {
+        margin: 0;
+        text-align: center;
+    }
+    .main-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
